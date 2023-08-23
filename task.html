@@ -4,8 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      p {
+        line-height: 1.2;
+        background: hsl(61, 94%, 39%);
+        border: 5px solid hsl(11, 72%, 50%);
+        border-bottom-style: double;
+      }
+    </style>
   </head>
   <body>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid sed sit
+      delectus enim tempora ullam exercitationem, ex harum soluta nihil,
+      accusantium aperiam voluptatibus. Corporis necessitatibus, vero eveniet
+      ab, numquam voluptatibus eos exercitationem odit cum ipsa hic, quis
+      nostrum est!
+    </p>
+
     <script>
       function sayHello() {
         return () => {
@@ -13,6 +29,16 @@
         };
       }
       sayHello()();
+      const val = movies
+        .map((e) => ({
+          rating: e.ratings.reduce((a, c) => a + c) / e.ratings.length,
+          title: e.title,
+        }))
+        .sort((a, b) => b.rating - a.rating)
+        .slice(0, 2)
+        .map((e) => e.title)
+        .join(" and ");
+      console.log(val);
     </script>
   </body>
 </html>
