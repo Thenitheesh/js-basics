@@ -17,8 +17,9 @@
       .container {
        background-color: white;
         border-radius: 10px;
-        height: 310px;
-    width: 247px;
+        height: 332px;
+    width: 277px;
+    box-shadow: 10px 9px 29px -19px rgba(0,0,0,0.75);
       }button{
         background-color: #f8f4ff;
     width: 100%;
@@ -31,27 +32,46 @@
       }ul {
   list-style: none;
   padding: 0;
+
+  
 }
+.list1 li:nth-child(n+2){
+    color: #cccccc;
+}
+.list2 li:nth-child(n+3){
+    color: #cccccc;
+}
+.list3 li:nth-child(n+5){
+    color: #cccccc;
+}
+
 
 ul li:before {
   
   content: "\2713\0020";
-
+  padding-right: 6px;
 }li{
-    font-size: 12px;
+    font-size: 14px;
     padding-bottom: 11px;
+    color: #343a45;
 }
       .main-container {
         display: flex;
-        width: 1042px;
+        width: 1167px;
         justify-content: space-between;
       }.inside{
         margin: 15px;
     margin-bottom: 0;
     margin-top: 30px;
       }h2{
-        font-size: 16px;
+        font-size: 20px;
         color: #2c2261;
+      }
+      .rev{
+        background-color: #181059;
+      }
+      .list3 li{
+        color: black;
       }
     </style>
   </head>
@@ -60,8 +80,8 @@ ul li:before {
       <div class="container">
         <div class="inside">
           <h2 class="heading">Intro</h2>
-          <ul>
-            <li>Upload Video up to 720 Resolution</li>
+          <ul class="list1">
+            <li >Upload Video up to 720 Resolution</li>
             <li>Attachment & post scheduling</li>
             <li>Set your rates</li>
             <li>Exclusive Deals</li>
@@ -74,8 +94,8 @@ ul li:before {
       <div class="container">
         <div class="inside">
           <h2 class="heading">Base</h2>
-          <ul>
-            <li>Upload Video up to 720 Resolution</li>
+          <ul class="list2">
+            <li >Upload Video up to HD Resolution</li>
             <li>Attachment & post scheduling</li>
             <li>Set your rates</li>
             <li>Exclusive Deals</li>
@@ -85,25 +105,25 @@ ul li:before {
           <button>choose</button>
         </div>
       </div>
-      <div class="container">
+      <div class="container rev">
         <div class="inside">
           <h2 class="heading">Pro</h2>
-          <ul>
-            <li>Upload Video up to 720 Resolution</li>
+          <ul class="list3">
+            <li >Upload Video up to HD Resolution</li>
             <li>Attachment & post scheduling</li>
             <li>Set your rates</li>
             <li>Exclusive Deals</li>
             <li>Advanced Statistics</li>
           </ul>
           <p class="pricetag">$456/month</p>
-          <button>Try 1 month</button>
+          <button id="revbtn">Try 1 month</button>
         </div>
       </div>
       <div class="container">
         <div class="inside">
           <h2 class="heading">Enterprise</h2>
-          <ul>
-            <li>Upload Video up to 720 Resolution</li>
+          <ul class="list4">
+            <li >Upload Video up to 4K Resolution</li>
             <li>Attachment & post scheduling</li>
             <li>Set your rates</li>
             <li>Exclusive Deals</li>
