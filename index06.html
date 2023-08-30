@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0;
+        display: grid;
+        place-content: center;
+        min-height: 100vh;
+        color: white;
+        font-family: sans-serif;
+      }
+      p::before {
+        content: open-quote;
+        transform: scale(6.5);
+        position: absolute;
+        top: 56px;
+        color: #dad7d745;
+      }
+      .container {
+        background-color: purple;
+        position: relative;
+        padding: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta quae
+        laborum, repudiandae dolorem autem dicta?
+      </p>
+    </div>
+  </body>
+</html>

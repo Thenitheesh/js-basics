@@ -13,13 +13,16 @@
         min-height: 100vh;
         font-family: sans-serif;
         background-color: #f6f5fa;
+        color: #181059;
+      }
+      i{
+        padding-right: 1rem;
       }
       .container {
        background-color: white;
         border-radius: 10px;
-        height: 332px;
-    width: 277px;
-    box-shadow: 10px 9px 29px -19px rgba(0,0,0,0.75);
+        
+    /* box-shadow: 10px 9px 29px -19px rgba(0,0,0,0.75); */
       }button{
         background-color: #f8f4ff;
     width: 100%;
@@ -46,22 +49,20 @@
 }
 
 
-ul li:before {
-  
-  content: "\2713\0020";
-  padding-right: 6px;
-}li{
+li{
     font-size: 14px;
     padding-bottom: 11px;
     color: #343a45;
 }
       .main-container {
         display: flex;
-        width: 1167px;
         justify-content: space-between;
+        flex-direction: column;
+        gap:1rem;
+        margin: 1rem;
       }.inside{
-        margin: 15px;
-    margin-bottom: 0;
+        margin: 1rem;
+    
     margin-top: 30px;
       }h2{
         font-size: 20px;
@@ -72,6 +73,34 @@ ul li:before {
       }
       .list3 li{
         color: black;
+      }.price{
+        font-size: 1.5rem;
+    font-weight: bold;
+      }
+      .pricetag{
+        font-size: 1rem;
+      }
+      .rev ,.rev h2,.rev li{
+        color: hsl(0, 0%, 100%);
+      }
+      .rev ul:last-child{
+        color: #f2f2f261;
+      }.rev button{
+        background-color: #8a55ff;;
+        color: #f8f4ff;
+      }
+
+      @media (min-width:600px) {
+        .main-container{
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      @media (min-width:1000px) {
+        .main-container{
+          display: flex;
+          flex-direction: row;
+        }
       }
     </style>
   </head>
@@ -81,13 +110,13 @@ ul li:before {
         <div class="inside">
           <h2 class="heading">Intro</h2>
           <ul class="list1">
-            <li >Upload Video up to 720 Resolution</li>
-            <li>Attachment & post scheduling</li>
-            <li>Set your rates</li>
-            <li>Exclusive Deals</li>
-            <li>Advanced Statistics</li>
+            <li ><i class="fa-solid fa-check" style="color: #181059;"></i>Upload Video up to 720 Resolution</li>
+            <li><i class="fa-solid fa-check" style="color: #181059;"></i>Attachment & post scheduling</li>
+           <li><i class="fa-solid fa-check" style="color: #181059;"></i>set your rates</li>
+            <li><i class="fa-solid fa-check" style="color: #181059;"></i>Exclusive Deals</li>
+            <li><i class="fa-solid fa-check" style="color: #181059;"></i>Advanced Statistics</li>
           </ul>
-          <p class="pricetag">$123/month</p>
+          <p class="pricetag">$<span class="price">123</span> /month</p>
           <button>choose</button>
         </div>
       </div>
@@ -95,13 +124,13 @@ ul li:before {
         <div class="inside">
           <h2 class="heading">Base</h2>
           <ul class="list2">
-            <li >Upload Video up to HD Resolution</li>
-            <li>Attachment & post scheduling</li>
-            <li>Set your rates</li>
-            <li>Exclusive Deals</li>
-            <li>Advanced Statistics</li>
+            <li ><i class="fa-solid fa-check" style="color: #181059;"></i>Upload Video up to HD Resolution</li>
+            <li><i class="fa-solid fa-check" style="color: #181059;"></i>Attachment & post scheduling</li>
+            <li><i class="fa-solid fa-check" style="color: #181059;"></i>Set your rates</li>
+            <li><i class="fa-solid fa-check" style="color: #181059;"></i>Exclusive Deals</li>
+            <li><i class="fa-solid fa-check" style="color: #181059;"></i>Advanced Statistics</li>
           </ul>
-          <p class="pricetag">$234/month</p>
+          <p class="pricetag">$<span class="price">345</span> /month</p>
           <button>choose</button>
         </div>
       </div>
@@ -109,13 +138,13 @@ ul li:before {
         <div class="inside">
           <h2 class="heading">Pro</h2>
           <ul class="list3">
-            <li >Upload Video up to HD Resolution</li>
-            <li>Attachment & post scheduling</li>
-            <li>Set your rates</li>
-            <li>Exclusive Deals</li>
-            <li>Advanced Statistics</li>
+            <li ><i class="fa-solid fa-check" style="color: white;"></i>Upload Video up to HD Resolution</li>
+            <li><i class="fa-solid fa-check" style="color: white;"></i>Attachment & post scheduling</li>
+            <li><i class="fa-solid fa-check" style="color: white;"></i>Set your rates</li>
+            <li><i class="fa-solid fa-check" style="color: white;"></i>Exclusive Deals</li>
+            <li><i class="fa-solid fa-check" style="color: #f2f2f261;"></i>Advanced Statistics</li>
           </ul>
-          <p class="pricetag">$456/month</p>
+          <p class="pricetag">$<span class="price">567</span> /month</p>
           <button id="revbtn">Try 1 month</button>
         </div>
       </div>
@@ -123,13 +152,13 @@ ul li:before {
         <div class="inside">
           <h2 class="heading">Enterprise</h2>
           <ul class="list4">
-            <li >Upload Video up to 4K Resolution</li>
-            <li>Attachment & post scheduling</li>
-            <li>Set your rates</li>
-            <li>Exclusive Deals</li>
-            <li>Advanced Statistics</li>
+            <li ><i class="fa-solid fa-check" style="color: #181059;"></i>Upload Video up to 4K Resolution</li>
+            <li><i class="fa-solid fa-check" style="color: #181059;"></i>Attachment & post scheduling</li>
+            <li><i class="fa-solid fa-check" style="color: #181059;"></i>Set your rates</li>
+            <li><i class="fa-solid fa-check" style="color: #181059;"></i>Exclusive Deals</li>
+            <li><i class="fa-solid fa-check" style="color: #181059;"></i>Advanced Statistics</li>
           </ul>
-          <p class="pricetag">$678/month</p>
+          <p class="pricetag">$<span class="price">789</span> /month</p>
           <button>choose</button>
         </div>
       </div>

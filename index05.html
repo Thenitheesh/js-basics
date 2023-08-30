@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        display: grid;
+        place-content: center;
+        min-height: 100vh;
+        background-color: aliceblue;
+        font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+      }
+      .img-container {
+        position: relative;
+        
+      }
+      img {
+        border-radius: 50%;
+        height: 20rem;
+        width: 20rem;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 20px 8px;
+      }
+      .notification {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.5rem;
+        background-color: rgb(4, 98, 76);
+        border-radius: 50%;
+        height: 2.5rem;
+        width: 2.5rem;
+        transition: all 0.2s ease-in-out;
+        top: 0;
+    right: 54px;
+      }
+      .img-container:hover .notification{
+           transform: scale(1.1);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="img-container">
+        <img src="https://nitheesh.tech/assets/nitheesh-4fb0d258.png" alt="" />
+      <div class="notification">7</div>
+    </div>
+  </body>
+</html>
