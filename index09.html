@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background: blue;
+      }
+      
+    </style>
+  </head>
+  <div>
+    <img src="" alt="">
+  </div>
+  <body>
+    <button onclick="clicks()">🍅start</button>
+    <button onclick="stop()">stop</button>
+    <button onclick="pause()">pause</button>
+    <script>
+      //   const nithi=  window.setInterval(()=>{
+      //         console.log("nitheeesh")
+
+      //     },2000)
+      //    window.setTimeout(() => {
+      //     window.clearInterval(nithi)
+      //    }, 6000);
+
+      let clstop;
+     
+      let x = 0;
+      function clicks() {
+        clstop = setInterval((color) => {
+          color = ["orange", "green", "magenta", "red"];
+          document.body.style.background = color[x++];
+          if (x == 5) x = 0;
+          console.log(x);
+        }, 2000);
+    
+      }
+      function stop() {
+        x=0
+      clearInterval(clstop)
+      }
+      function pause() {
+        clearInterval(clstop)
+      }
+
+      
+    </script>
+  </body>
+</html>
