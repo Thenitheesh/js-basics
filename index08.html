@@ -59,7 +59,7 @@
               document.body.append(containermain);
               containermain.setAttribute(
                 "style",
-                "display:flex;flex-wrap:wrap;justify-content: center;gap:1.5rem;margin: 1rem 0;width: 12rem;"
+                "display:flex;flex-wrap:wrap;justify-content: center;gap:1.5rem;margin: 1rem 0;"
               );
               countriesInfo.map((n) => {
                 let container = document.createElement("div");
@@ -74,7 +74,7 @@
                 datacontainer.append(ele1, ele2, ele3, ele4);
                 container.setAttribute(
                   "style",
-                  "background-color: white;border-radius:10px;overflow:hidden; "
+                  "background-color: white;border-radius:10px;overflow:hidden;width: 12rem; "
                 );
                 ele.setAttribute("src", n.flag);
                 ele.setAttribute("style", " max-width: 100%;max-height: 100%;");
