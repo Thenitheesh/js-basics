@@ -12,7 +12,7 @@
         min-height: 100vh;
         background-color: aliceblue;
         font-family: sans-serif;
-        font-size: 12px;
+        font-size: 14px;
       }
     </style>
   </head>
@@ -77,11 +77,11 @@
           "background-color: white;border-radius:10px;overflow:hidden;width: fit-content; "
         );
         ele.setAttribute("src", n.flag);
-        ele.setAttribute("style", "height: 8rem;width: 12rem");
+        ele.setAttribute("style", "width: 12rem");
         ele1.innerText = n.name;
         ele2.innerHTML = `Population:${n.population}`;
-        ele3.innerHTML = `Population:${n.region}`;
-        ele4.innerHTML = `Population:${n.capital}`;
+        ele3.innerHTML = `Region:${n.region}`;
+        ele4.innerHTML = `Capital:${n.capital}`;
         datacontainer.setAttribute("style", "padding:1rem;");
       });
     </script>
