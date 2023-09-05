@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1></h1>
+    <script>
+      let x = 10;
+      document.querySelector("h1").innerText = x;
+
+
+
+        let rolls = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          x--;
+          document.querySelector("h1").innerText = x;
+          resolve("ok");
+          console.log(x)
+        }, 2000);
+      })
+      rolls
+      // // let test=hello()
+      // console.log(rolls)
+      // let rolls = new Promise((resolve, reject) => {
+      //   setTimeout(() => {
+      //     x--;
+      //     document.querySelector("h1").innerText = x;
+      //     resolve("ok");
+      //     console.log(x)
+      //   }, 2000);
+      // })
+      // rolls.then((resolve,reject)=>{
+      //   rolls()
+      // })
+      // // .then(() =>
+      //     setTimeout(() => {
+      //       x--;
+      //       console.log(x)
+      //       document.querySelector("h1").innerText = x;
+      //     }, 2000)
+      //   ).then(() =>
+      //     setTimeout(() => {
+      //       x--;
+      //       console.log(x)
+      //       document.querySelector("h1").innerText = x;
+      //     }, 2000)
+      //   )
+        // .then(() =>
+        //   setTimeout(() => {
+        //     x--;
+        //     document.querySelector("h1").innerText = x;
+        //   }, 2000)
+        // )
+        // .then(() =>
+        //   setTimeout(() => {
+        //     x--;
+        //     document.querySelector("h1").innerText = x;
+        //   }, 2000)
+        // )
+        // .then(() =>
+        //   setTimeout(() => {
+        //     x--;
+        //     document.querySelector("h1").innerText = x;
+        //   }, 2000)
+        // )
+        // .then(() =>
+        //   setTimeout(() => {
+        //     x--;
+        //     document.querySelector("h1").innerText = x;
+        //   }, 2000)
+        // )
+        // .then(() =>
+        //   setTimeout(() => {
+        //     x--;
+        //     document.querySelector("h1").innerText = x;
+        //   }, 2000)
+        // );
+    </script>
+  </body>
+</html>

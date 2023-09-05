@@ -5,10 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
+  <style>
+    body{
+        display: grid;
+        place-content: center;
+        min-height: 100vh;
+        background-color: rgb(64, 184, 191);
+    }
+h1{
+    font-size: 5rem;
+}
+/* ---- reset ---- */
+.github {
+	z-index: 10000;
+	bottom: 10px;
+	right: 10px;
+	position: fixed;
+	border-radius: 10px;
+	background: #fff;
+	padding: 0 12px 6px 12px;
+	border: 1px solid #000;
+}
+
+.github a:hover,
+.github a:link,
+.github a:visited,
+.github a:active {
+	color: #000;
+	text-decoration: none;
+}
+
+.github img {
+	height: 30px;
+}
+
+.github #gh-project {
+	font-size: 20px;
+	padding-left: 5px;
+	font-weight: bold;
+	vertical-align: bottom;
+}
+
+  </style>
   <body>
     <h1></h1>
+    <img src="" alt="">
+<div class="github">
+	<a class="btn btn-link" href="https://github.com/matteobruni/tsparticles" title="Find more info on GitHub">
+		<img class="img-fluid" id="gh-mark" src="https://particles.js.org/images/GitHub-Mark-120px-plus.png" alt="">
+		<span id="gh-project">tsParticles</span>
+	</a>
+	<div>
+		<a class="github-button" href="https://github.com/matteobruni/tsparticles" data-icon="octicon-star" aria-label="Star matteobruni/tsparticles on GitHub">Star</a>
+		<a class="github-button" href="https://github.com/matteobruni/tsparticles/fork" data-icon="octicon-repo-forked" aria-label="Fork matteobruni/tsparticles on GitHub">Fork</a>
+	</div>
+</div>
+<script async="" defer="" src="https://buttons.github.io/buttons.js"></script>
     <script>
      let i = 10;
+     
+
       document.querySelector("h1").innerText = i;
       setTimeout(() => {
         i--;
@@ -42,6 +98,8 @@
                           if ((i = 1)) {
                             document.querySelector("h1").innerText =
                               "happy new year";
+                              document.querySelector("img").src="anime.svg"
+
                           }
                           // if(i=0)
                         }, 1000);

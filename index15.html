@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      body {
+        display: grid;
+        min-height: 100vh;
+        place-content: center;
+        background-color: #92acf1;
+        font-family: "Courier New", Courier, monospace;
+      }
+      .container {
+        height: 25rem;
+
+        border-radius: 10px;
+        background-color: white;
+        padding: 2rem;
+        overflow: hidden;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+      }
+      .container:hover {
+        overflow-y: scroll;
+        scrollbar-width: none;
+      }
+      .inside-container {
+        height: 5rem;
+        background-color: whitesmoke;
+        border-radius: 10px;
+        padding: 1rem;
+        display: flex;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        margin: 2rem;
+        justify-content: space-around;
+        align-items: center;
+      }
+      .content {
+        display: flex;
+        flex-direction: column;
+        margin-left: 2rem;
+        
+      }
+      img {
+        border-radius: 50%;
+        height: 4rem;
+        width: 4rem;
+      }
+      h3 {
+        margin: 0;
+      }
+      button{
+        visibility: hidden;
+      }
+      .inside-container:hover >button {
+        visibility: visible ;
+        height: 2.5rem;
+        width: 2.5rem;
+        border-radius: 50%;
+        border: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- <div class="inside-container">
+        <img src="https://nitheesh.tech/assets/nitheesh-4fb0d258.png" alt="" />
+        <h3>nitheesh</h3>
+      </div> -->
+    </div>
+
+    <script>
+       
+    
+      function createUser({ name, avatar, createdAt,id }) {
+        document.querySelector(
+          ".container"
+        ).innerHTML += ` <div class="inside-container">
+        <img src="${avatar}" alt="">
+       <div class="content"> <h3>${name}</h3>
+        <p>${new Date(createdAt).toDateString()}</p></div>
+        <button class="delete" onclick="deleteUser(${id})"><i class="fa-solid fa-trash" style="color: #f41010;"></i></button>
+    </div>`;
+      }
+      let deleteUser=(id)=>{
+    UserDeleteByid(id)
+}
+let UserDeleteByid=(num)=>{
+    fetch(`https://64f6f4189d7754084952d867.mockapi.io/users/${num}`,{method:"delete"})
+        .then(() => Users())
+    
+}
+
+  Users=()=>{fetch("https://64f6f4189d7754084952d867.mockapi.io/users")
+        .then((res) => res.json())
+        .then((data) => {
+            document.querySelector('.container').innerHTML=""
+          data.forEach((e) => {
+            createUser(e);
+          });
+        });}
+  Users()
+    </script>
+  </body>
+</html>

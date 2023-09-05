@@ -10,7 +10,7 @@
         display: grid;
         place-content: center;
         min-height: 100vh;
-        background-color: aliceblue;
+        background: aliceblue;
         font-family: sans-serif;
         font-size: 14px;
       }
@@ -55,6 +55,18 @@
           capital: "Reykjavik",
         },
       ];
+
+      let country = fetch("https://restcountries.com/v3.1/all")
+        .then((res) => res.json())
+        .then((data) =>
+          data
+            .filter((names) => names.population > 1_00_00_000)
+            .sort(
+              (countrya, countryb) => countryb.population - countrya.population
+            )
+            .slice(0, 10)
+            .map((n)=>document.querySelector('ul').innerHTML+=`<li>${n.name.common}</li>`)
+        )
       let containermain = document.createElement("div");
       document.body.append(containermain);
       containermain.setAttribute(

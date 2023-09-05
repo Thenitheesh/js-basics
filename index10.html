@@ -10,6 +10,7 @@
         width: 100%;
         object-fit: cover;
         position: relative;
+        transition: all 0.2s ease-in;
       }
       button {
         position: absolute;
@@ -24,32 +25,59 @@
         right: 1rem;
         top: 8rem;
       }
+      .change{
+        background: green;
+     border: 0;
+        border-radius: 50%;
+        height:13px;
+        width: 13px;
+      }
+      .y1 {
+    right: 36rem;
+    top: 18rem;
+}
+.y2 {
+    right: 35rem;
+    top: 18rem;
+}
+.y3 {
+    right: 34rem;
+    top: 18rem;
+}
+.y4 {
+    right: 33rem;
+    top: 18rem;
+}
     </style>
   </head>
   <body>
     <img src="" alt="" onmouseover="hoverOn()" onmouseout="imageaction()"/>
     <button class="left" onclick="lefty()">left</button>
     <button class="right" onclick="righty()">right</button>
+    <button class="y1 change" onclick="y1()"></button>
+    <button class="y2 change" onclick="y2()"></button>
+    <button class="y3 change" onclick="y3()"></button>
+    <button class="y4 change" onclick="y4()"></button>
     <script>
       let clstop;
 
       let x = 0;
-      let images;
-      function imageaction() {
-        clstop = setInterval(() => {
-          images = [
+      images = [
             "https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bGFuZHNjYXBlfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
             "https://images.unsplash.com/photo-1434725039720-aaad6dd32dfe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8bGFuZHNjYXBlfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
             "https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8bGFuZHNjYXBlfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
             "https://plus.unsplash.com/premium_photo-1675804669860-9e27f22b0681?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGxhbmRzY2FwZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60",
           ];
+      function imageaction() {
+        clstop = setInterval(() => {
+        
           document.querySelector("img").src = images[x];
           console.log(x);
           x++;
           if (x >= images.length) x = 0;
         }, 2000);
       }
-
+      
       function lefty() {
         clearInterval(clstop);
         x -= 2;
@@ -70,7 +98,30 @@
       }
     function hoverOn(){
      clearInterval(clstop)
-     }
+     }function y1(){
+        clearInterval(clstop);
+      x=0
+        document.querySelector('img').src=images[x]
+        imageaction();
+      }
+      function y2(){
+        clearInterval(clstop);
+      x=1
+        document.querySelector('img').src=images[x]
+        imageaction();
+      }
+      function y3(){
+        clearInterval(clstop);
+      x=2
+        document.querySelector('img').src=images[x]
+        imageaction();
+      }
+      function y4(){
+        clearInterval(clstop);
+      x=3
+        document.querySelector('img').src=images[x]
+        imageaction();
+      }
     </script>
   </body>
 </html>

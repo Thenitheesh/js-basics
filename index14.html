@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0;
+        display: grid;
+        place-content: center;
+        min-height: 100vh;
+        background: aliceblue;
+        font-family: sans-serif;
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    
+    <script>
+      let containermain = document.createElement("div");
+      document.body.append(containermain);
+      containermain.setAttribute(
+        "style",
+        "display:flex;flex-wrap:wrap;justify-content: center;gap:1.5rem;margin: 1rem 0;"
+      );
+
+      let country = fetch("https://restcountries.com/v3.1/all")
+        .then((res) => res.json())
+        .then((data) =>
+          data
+            // .filter((names) => names.population > 1_00_00_000)
+            .sort(
+              (countrya, countryb) => countryb.population - countrya.population
+            )
+            // .slice(0, 10)
+            // .map((n)=>document.querySelector('ul').innerHTML+=`<li>${n.name.common}</li>`)
+            .map((n) => {
+              let container = document.createElement("div");
+              containermain.append(container);
+              let datacontainer = document.createElement("div");
+              let element = document.createElement("img");
+              container.append(element, datacontainer);
+              let element1 = document.createElement("h3");
+              let element2 = document.createElement("p");
+              let element3 = document.createElement("p");
+              let element4 = document.createElement("p");
+              datacontainer.append(element1, element2, element3, element4);
+              container.setAttribute(
+                "style",
+                "background-color: white;border-radius:10px;overflow:hidden;width:13rem;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; "
+              );
+              element.setAttribute("src", n.flags.svg);
+              element.setAttribute(
+                "style",
+                " width:100%;height:8rem;Object-fit:cover;"
+              );
+              element1.innerText = n.name.common;
+              element2.innerHTML = `<strong>Population:</strong> ${n.population}`;
+              element3.innerHTML = `<strong>Region:</strong> ${n.region}`;
+              element4.innerHTML = `<strong>Capital:</strong> ${n.capital}`;
+              datacontainer.setAttribute("style", "padding:1rem;");
+            })
+        );
+
+    //   document.querySelectorAll("span").forEach((e) => e.setAttribute("style", "font-weight:bold"));
+    </script>
+  </body>
+</html>

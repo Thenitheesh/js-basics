@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>nitheesh</title>
+  </head>
+  <body>
+    <ul></ul>
+    <script>
+      //       let country = fetch("https://restcountries.com/v3.1/all")
+      //         .then((res) => res.json())
+      //         .then((data) =>
+      // console.log(
+      //             data
+      //               .filter((names) => names.population > 1_00_00_000)
+      //               .sort((countrya,countryb)=>countryb.population-countrya.population)
+      //               .map((n,c)=>`${c+1}. ${n.name.common} - ${n.population}`)
+      //               .join('\n')
+      //             //  .join(`${n.name.common} - ${n.population}`)
+
+      //         ));
+      // task 4
+      //       let country = fetch("https://restcountries.com/v3.1/all")
+      //         .then((res) => res.json())
+      //         .then((data) =>
+      // console.log(
+      //             data
+      //               .filter((names) => names.population > 1_00_00_000)
+      //               .sort((countrya,countryb)=>countryb.population-countrya.population)
+      //               .slice(0,10)
+      //               .map((n,c)=>`${c+1}. ${n.name.common} - ${n.population}`)
+      //               .join('\n')
+
+      //         ));
+      // task5
+      let country = fetch("https://restcountries.com/v3.1/all")
+        .then((res) => res.json())
+        .then((data) =>
+          data
+            .filter((names) => names.population > 1_00_00_000)
+            .sort(
+              (countrya, countryb) => countryb.population - countrya.population
+            )
+            .slice(0, 10)
+            .map((n,c)=>`${c+1}. ${n.name.common} - ${n.population}`)
+            .forEach((n)=>document.querySelector('ul').innerHTML+=`<li>${n}</li>`)
+        )
+    </script>
+  </body>
+</html>
