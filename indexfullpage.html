@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow:wght@600&family=Fraunces:opsz,wght@9..144,700;9..144,900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Nitheesh gattamaneni</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      body {
+        margin: 0;
+
+        font-family: "Fraunces", serif;
+      }
+      .intro {
+        background-image: url(images/desktop/image-header.jpg);
+        height: 44rem;
+        background-size: cover;
+        background-position: bottom;
+      }
+      a {
+        text-decoration: none;
+        color: white;
+        font-family: "Barlow", sans-serif;
+        font-weight: 600;
+      }
+      .nav-btn {
+        border-radius: 1000px;
+        border: none;
+        background-color: white;
+        font-family: "Fraunces", serif;
+        width: 6rem;
+        height: 2.5rem;
+      }
+      header {
+        display: flex;
+        padding: 3rem;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+      }
+      img {
+        object-fit: contain;
+      }
+      .link {
+        gap: 2rem;
+      }
+      h1 {
+        text-align: center;
+        font-size: 3.5rem;
+        color: white;
+      }
+      .table {
+        display: grid;
+        grid-template-columns: 1fr;
+        text-align: left;
+      }
+
+      .img1 {
+        background-image: url(images/desktop/image-transform.jpg);
+      }
+      .img2 {
+        background-image: url(images/desktop/image-stand-out.jpg);
+      }
+      .img3 {
+        background-image: url(images/desktop/image-graphic-design.jpg);
+      }
+      .img4 {
+        background-image: url(images/desktop/image-photography.jpg);
+      }
+      .table > div {
+        background-size: cover;
+        background-position: center;
+      }
+      i {
+        width: 5rem;
+        height: 10rem;
+      }
+      .avatar {
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+      }
+      .cards {
+        display: flex;
+        margin: 0 auto;
+      }
+      .profile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-family: "Barlow", sans-serif;
+      }
+      h3 {
+        font-family: "Fraunces", serif;
+      }
+      .imggs {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        height: 30rem;
+      }
+      .items {
+        background-size: cover;
+        background-position: center;
+      }
+
+      .item1 {
+        background-image: url(images/desktop/image-gallery-milkbottles.jpg);
+      }
+      .item2 {
+        background-image: url(images/desktop/image-gallery-orange.jpg);
+      }
+      .item3 {
+        background-image: url(images/desktop/image-gallery-cone.jpg);
+      }
+      .item4 {
+        background-image: url(images/desktop/image-gallery-sugarcubes.jpg);
+      }
+      .footer {
+        background-color: hsl(168, 34%, 41%);
+        color: hsl(232, 10%, 55%);
+        height: 20rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+      }
+      .footer-icon {
+        fill: hsl(225, 67%, 1%);
+      }
+      .social {
+        display: flex;
+        gap: 2rem;
+      }
+      .li {
+        gap: 5rem;
+        color: hsl(168.17deg 44.1% 31.57%);
+      }
+      .feature-text {
+        font-size: 3rem;
+        color: black;
+        text-align: left;
+      }
+      .link {
+        display: none;
+      }
+      /* .table .cols > h1,
+      p,
+      a {
+        padding: 1rem;
+      } */
+      .arrow {
+        display: block;
+        margin: auto;
+      }
+      .cols {
+        padding: 8rem;
+      }.cards{
+        padding: 5rem;
+        text-align: center;
+      }.img3,.img4{
+        padding: 8rem 2rem 2rem 0;
+      }
+      @media (min-width: 900px) {
+        .table {
+          grid-template-columns: 1fr 1fr;
+        }
+        .link {
+          display: flex;
+          align-items: center;
+        }
+        .icon {
+          text-align: left;
+        }
+        .imggs {
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="intro">
+      <header>
+        <img class="icon" src="images/logo.svg" alt="" />
+        <div class="link">
+          <a href="" class="nav-links">About</a
+          ><a href="" class="nav-links">Services</a
+          ><a href="" class="nav-links">Projects</a>
+          <button class="nav-btn">Contact</button>
+        </div>
+      </header>
+      <h1>We are creatives</h1>
+      <img class="arrow" src="images/icon-arrow-down.svg" alt="" />
+    </section>
+    <section class="table">
+      <div class="cols">
+        <h1 class="feature-text">Transform your brand</h1>
+        <p>
+          We are a full-service creative agency specializing in helping brands
+          grow fast. Engage your clients through compelling visuals that do most
+          of the marketing for you.
+        </p>
+        <a href="">LEARN MORE</a>
+      </div>
+      <div class="cols img1"></div>
+      <div class="cols img2"></div>
+      <div class="cols">
+        <h1 class="feature-text">Stand out to the right audience</h1>
+        <p>
+          Using a collaborative formula of designers, researchers,
+          photographers, videographers, and copywriters, we’ll build and extend
+          your brand in digital places.
+        </p>
+        <a href="">LEARN MORE</a>
+      </div>
+      <div class="cols img3"><h1 class="feature-head">Graphic design</h1>
+      <p class="feature-text-inside">Great design makes you memorable. We deliver artwork that
+        underscores your brand message and captures potential clients’ attention.</p></div>
+      <div class="cols img4"><h1 class="feature-head">Photography</h1>
+        <p class="feature-text-inside">Increase your credibility by getting the most stunning,
+          high-quality photos that improve your business image.</p></div>
+    </section>
+    <section class="cards">
+      <div class="profile">
+        <img src="images/image-emily.jpg" class="avatar" alt="" />
+        <p class="profile-content">
+          We put our trust in Sunnyside and they delivered, making sure our
+          needs were met and deadlines were always hit
+        </p>
+        <h3>Emily R.</h3>
+        <p>Marketing Manager</p>
+      </div>
+      <div class="profile">
+        <img src="images/image-emily.jpg" class="avatar" alt="" />
+        <p class="profile-content">
+          We put our trust in Sunnyside and they delivered, making sure our
+          needs were met and deadlines were always hit
+        </p>
+        <h3>Emily R.</h3>
+        <p>Marketing Manager</p>
+      </div>
+      <div class="profile">
+        <img src="images/image-emily.jpg" class="avatar" alt="" />
+        <p class="profile-content">
+          We put our trust in Sunnyside and they delivered, making sure our
+          needs were met and deadlines were always hit
+        </p>
+        <h3>Emily R.</h3>
+        <p>Marketing Manager</p>
+      </div>
+    </section>
+    <section class="imggs">
+      <div class="items item1"></div>
+      <div class="items item2"></div>
+      <div class="items item3"></div>
+      <div class="items item4"></div>
+    </section>
+    <section class="footer">
+      <img src="images/logo.svg" class="footer-icon" />
+      <div class="link li">
+        <a href="" class="nav-links">About</a
+        ><a href="" class="nav-links">Services</a
+        ><a href="" class="nav-links">Projects</a>
+      </div>
+      <div class="social">
+        <img src="images/icon-facebook.svg" alt="" class="icons" /><img
+          src="images/icon-instagram.svg"
+          alt=""
+          class="icons"
+        /><img src="images/icon-twitter.svg" alt="" class="icons" /><img
+          src="images/icon-pinterest.svg"
+          alt=""
+          class="icons"
+        />
+      </div>
+    </section>
+    <!--  Learn more   Learn more
+     
+      Client testimonials . Emily R. Marketing Director Sunnyside’s
+    enthusiasm coupled with their keen interest in our brand’s success made it a
+    satisfying and enjoyable experience. Thomas S. Chief Operating Officer
+    Incredible end result! Our sales increased over 400% when we worked with
+    Sunnyside. Highly recommended! Jennie F. Business Owner About Services
+    Projects Contact -->
+  </body>
+</html>
