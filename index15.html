@@ -13,11 +13,13 @@
     />
     <style>
       body {
-        display: grid;
+        display: flex;
         min-height: 100vh;
         place-content: center;
         background-color: #92acf1;
         font-family: "Courier New", Courier, monospace;
+        align-items: center;
+        justify-content: space-around;
       }
       .container {
         height: 25rem;
@@ -47,7 +49,6 @@
         display: flex;
         flex-direction: column;
         margin-left: 2rem;
-        
       }
       img {
         border-radius: 50%;
@@ -57,53 +58,126 @@
       h3 {
         margin: 0;
       }
-      button{
+      .container button {
         visibility: hidden;
       }
-      .inside-container:hover >button {
-        visibility: visible ;
+      .inside-container:hover > button {
+        visibility: visible;
         height: 2.5rem;
         width: 2.5rem;
         border-radius: 50%;
         border: 0;
       }
+      .adduser {
+        height: 15rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        border-radius: 10px;
+        background-color: white;
+        padding: 2rem;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+      }
+      .adduser button,
+      input {
+        background-color: #f8f4ff;
+        width: 100%;
+
+        height: 37px;
+        border-radius: 10px;
+        color: #5f5378;
+        font-weight: bold;
+        font-size: 14px;
+        border: 1px solid #cccccc;
+        transition: border-color 0.3s ease;
+      }
+
+      input:focus {
+        outline: none;
+        border-color: orchid;
+      }
+      /* .adduser:focus >i{
+        display: none;
+        
+      } */
+      .check {
+        text-align: center;
+        font-size: 2rem;
+        /* transition: all 1s ease-out ; */
+      }
     </style>
   </head>
   <body>
-    <div class="container">
+    <div class="adduser">
+      <input type="text" class="name" placeholder="Name" />
+      <input type="text" class="url" placeholder="URL" />
+      <button onclick="addUser()">submit</button>
     </div>
+    <div class="container"></div>
 
     <script>
-       
+    //   document
+    //     .querySelector(".name")
+    //     .addEventListener(
+    //       "focus",
+    //       () => {document.querySelectorAll(".check").remove;
+    //       console.log("cjllk")
     
-      function createUser({ name, avatar, createdAt,id }) {
+    //     }
+    //     );
+      let addUser = () => {
+        let name = document.querySelector(".name").value;
+        let url = document.querySelector(".url").value;
+        console.log(name, url);
+        const data = {
+          name: name,
+          avatar: url,
+          createdAt: new Date(),
+        };
+        fetch(`https://64f6f4189d7754084952d867.mockapi.io/users/`, {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify(data),
+        }).then(() => {
+          name.value = "";
+          url.value = "";
+          document.querySelector(
+            ".adduser"
+          ).innerHTML += `<i class="fa-regular fa-circle-check check" style="color: #49b941;"></i>`;
+          Users();
+        });
+      };
+
+      function createUser({ name, avatar, createdAt, id }) {
         document.querySelector(
           ".container"
         ).innerHTML += ` <div class="inside-container">
-        <img src="${avatar}" alt="">
-       <div class="content"> <h3>${name}</h3>
-        <p>${new Date(createdAt).toDateString()}</p></div>
-        <button class="delete" onclick="deleteUser(${id})"><i class="fa-solid fa-trash" style="color: #f41010;"></i></button>
-    </div>`;
+          <img src="${avatar}" alt="">
+         <div class="content"> <h3>${name}</h3>
+          <p>${new Date(createdAt).toDateString()}</p></div>
+          <button class="delete" onclick="deleteUser(${id})"><i class="fa-solid fa-trash" style="color: #f41010;"></i></button>
+      </div>`;
       }
-      let deleteUser=(id)=>{
-    UserDeleteByid(id)
-}
-let UserDeleteByid=(num)=>{
-    fetch(`https://64f6f4189d7754084952d867.mockapi.io/users/${num}`,{method:"delete"})
-        .then(() => Users())
-    
-}
+      let deleteUser = (id) => {
+        UserDeleteByid(id);
+      };
+      let UserDeleteByid = (num) => {
+        fetch(`https://64f6f4189d7754084952d867.mockapi.io/users/${num}`, {
+          method: "delete",
+        }).then(() => Users());
+      };
 
-  Users=()=>{fetch("https://64f6f4189d7754084952d867.mockapi.io/users")
-        .then((res) => res.json())
-        .then((data) => {
-            document.querySelector('.container').innerHTML=""
-          data.forEach((e) => {
-            createUser(e);
+      Users = () => {
+        fetch("https://64f6f4189d7754084952d867.mockapi.io/users")
+          .then((res) => res.json())
+          .then((data) => {
+            document.querySelector(".container").innerHTML = "";
+            data.forEach((e) => {
+              createUser(e);
+            });
           });
-        });}
-  Users()
+      };
+      Users();
     </script>
   </body>
 </html>
