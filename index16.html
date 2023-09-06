@@ -4,20 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
     <style>
       body {
         display: flex;
         min-height: 100vh;
         place-content: center;
         background-color: #92acf1;
-        font-family: "Courier New", Courier, monospace;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+          sans-serif;
         align-items: center;
         justify-content: space-around;
       }
@@ -35,7 +30,7 @@
         scrollbar-width: none;
       }
       .inside-container {
-        height: 5rem;
+        height: 8rem;
         background-color: whitesmoke;
         border-radius: 10px;
         padding: 1rem;
@@ -44,6 +39,7 @@
         margin: 2rem;
         justify-content: space-around;
         align-items: center;
+        width: 34rem;
       }
       .content {
         display: flex;
@@ -119,95 +115,82 @@
         position: absolute;
         right: 1rem;
       }
-     
-     
     </style>
   </head>
   <body>
-    <div class="adduser">
-      <input type="text" class="name" placeholder="Name" />
-      <input type="text" class="url" placeholder="URL" />
-      <button onclick="addUser()">submit</button>
-    </div>
-
     <div class="container">
-      
       <div class="search-container">
         <input type="text" class="Search-value" placeholder="Search" />
         <button class="Search-btn" onclick="searchUser()">🔍</button>
       </div>
       <div class="outerContainer"></div>
     </div>
-
     <script>
-      let searchUser = () => {
-        let searchText = document.querySelector(".Search-value").value;
-        fetch(
-          `https://64f6f4189d7754084952d867.mockapi.io/users?name=${searchText}`,
-          {
-            method: "get",
-          }
-        )
-          .then((res) => res.json())
-          .then((data) => {
-            document.querySelector(".outerContainer").innerHTML = "";
-            data.forEach((e) => {
-              createUser(e);
-            });
-          });
-      };
-      let addUser = () => {
-        let name = document.querySelector(".name").value;
-        let url = document.querySelector(".url").value;
-        console.log(name, url);
-        const data = {
-          name: name,
-          avatar: url
-        };
-        fetch(`https://64f6f4189d7754084952d867.mockapi.io/users/`, {
-          method: "POST",
-          headers: { "content-type": "application/json" },
-          body: JSON.stringify(data),
-        }).then(() => {
-          name.value = "";
-          url.value = "";
-          document.querySelector(
-            ".adduser"
-          ).innerHTML += `<i class="fa-regular fa-circle-check check" style="color: #49b941;"></i>`;
-          Users();
-        });
-      };
-
-      function createUser({ name, avatar, createdAt, id }) {
+      function createComments({ name, email, body }) {
         document.querySelector(
           ".outerContainer"
         ).innerHTML += ` <div class="inside-container">
-          <img src="${avatar}" alt="">
          <div class="content"> <h3>${name}</h3>
-          <p>${new Date(createdAt).toDateString()}</p></div>
-          <button class="delete" onclick="deleteUser(${id})"><i class="fa-solid fa-trash" style="color: #f41010;"></i></button>
+          <p>${email}</p></div>
+          <p>${body}</p>
+        
       </div>`;
       }
-      let deleteUser = (id) => {
-        UserDeleteByid(id);
-      };
-      let UserDeleteByid = (num) => {
-        fetch(`https://64f6f4189d7754084952d867.mockapi.io/users/${num}`, {
-          method: "delete",
-        }).then(() => Users());
-      };
+      function createPosts({ title, body }) {
+        document.querySelector(
+          ".outerContainer"
+        ).innerHTML += ` <div class="inside-container">
+         <div class="content"> <h3>${title}</h3>
+          </div>
+          <p>${body}</p>
+        
+      </div>`;
+      }
+      let searchUser = async () => {
+        let searchText = document.querySelector(".Search-value").value;
+        let getUser = await fetch(
+          `https://jsonplaceholder.typicode.com/users?name=${searchText}`,
+          {
+            method: "get",
+          }
+        );
+        let res = await getUser.json();
+        console.log(res);
+        console.log(res[0].id);
+        let getPosts = await fetch(
+          `https://jsonplaceholder.typicode.com/posts?userId=${res[0].id}`,
+          {
+            method: "get",
+          }
+        );
+        let posts = await getPosts.json();
+        let getAllUser = await fetch(
+          `https://jsonplaceholder.typicode.com/users`,
+          {
+            method: "get",
+          }
+        );
+      let allUserPosts  = await fetch(
+          `https://jsonplaceholder.typicode.com/posts`,
+          {
+            method: "get",
+          }
+        );
+         let all=Promise([getAllUser,allUserPosts])
+        // let getComments = await fetch(
+        //   `https://jsonplaceholder.typicode.com/comments?postId=${posts[0].id}`,
+        //   {
+        //     method: "get",
+        //   }
+        // );
+        // let comments = await getComments.json();
 
-      Users = () => {
-        fetch("https://64f6f4189d7754084952d867.mockapi.io/users")
-          .then((res) => res.json())
-          .then((data) => {
-            document.querySelector(".outerContainer").innerHTML = "";
-            data.forEach((e) => {
-              createUser(e);
-            });
-          });
+        posts.forEach((element) => {
+          createPosts(element);
+        });
+        // console.log(comments);
       };
-      Users();
+      searchUser()
     </script>
   </body>
 </html>
