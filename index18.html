@@ -20,10 +20,10 @@
         font-family: "Courier New", Courier, monospace;
         align-items: center;
         justify-content: space-around;
-            flex-direction: column;
+        flex-direction: column;
       }
       .container {
-        height: 25rem;
+        height: 35rem;
         width: 30rem;
         border-radius: 10px;
         background-color: white;
@@ -119,7 +119,7 @@
         position: absolute;
         right: 1rem;
       }
-      .paginating{
+      .paginating {
         margin: 0.5rem;
       }
     </style>
@@ -130,8 +130,8 @@
     </div>
     <div class="pagination"></div>
     <script>
-      let pageNumber = 0;
-      let noOfUsersPage = 10;
+      let page = 0;
+      // let noOfUsersPage = 10;
       let createUser = ({ name, avatar, createdAt, id }) => {
         document.querySelector(
           ".outerContainer"
@@ -142,7 +142,28 @@
           <button class="delete" onclick="deleteUser(${id})"><i class="fa-solid fa-trash" style="color: #f41010;"></i></button>
       </div>`;
       };
-      let getUser = async () => {
+      let getUser = async (pageNumber) => {
+        let users = await fetch(
+          `https://64f6f4189d7754084952d867.mockapi.io/users?p=${pageNumber}&l=10`,
+          {
+            method: "get",
+          }
+        );
+        return users.json();
+      };
+      let createbuttonUI = (users) => {
+        let btns = document.querySelector(".pagination");
+        let NO_OF_BTNS = Math.ceil(users / 10);
+        btns.innerHTML += ` <button class="previous" onclick="previousPage()">previous</button>`;
+        for (let i = 0; i < NO_OF_BTNS; i++) {
+          btns.innerHTML += `<button class="paginating" onclick=displayUsers(${
+            i + 1
+          })> ${i + 1}</button>`;
+        }
+        btns.innerHTML += `<button class="next" onclick="nextPage()">next</button>`;
+      };
+
+      let Userslength = async () => {
         let users = await fetch(
           `https://64f6f4189d7754084952d867.mockapi.io/users`,
           {
@@ -151,32 +172,37 @@
         );
         return users.json();
       };
-      let createbutton = (users) => {
-        let btns = document.querySelector(".pagination");
-        btns.innerHTML = "";
-        let NO_OF_BTNS = Math.ceil(users / 10);
-        console.log(NO_OF_BTNS);
-        for (let i = 0; i < NO_OF_BTNS; i++) {
-          btns.innerHTML += `<button class="paginating" onclick=displayUsers(${i})> ${i+1}</button>`;
-        }
+      let createbutton = async () => {
+        let getUserslength = await Userslength();
+        createbuttonUI(getUserslength.length);
       };
+      createbutton();
 
-      let createUsers = async () => {
+      let createUsers = async (pageNumber) => {
         document.querySelector(".outerContainer").innerHTML = "";
-        let mockUsers = await getUser();
-        createbutton(mockUsers.length);
-        let Usersbypage = mockUsers.slice(
-          pageNumber * noOfUsersPage,
-          noOfUsersPage + pageNumber * noOfUsersPage
-        );
-        Usersbypage.forEach((e) => {
+        let mockUsers = await getUser(pageNumber);
+        mockUsers.forEach((e) => {
           createUser(e);
         });
       };
-      createUsers();
-      let displayUsers = () => {
-        pageNumber++;
-        createUsers();
+      createUsers(1);
+      let displayUsers = (pageNumber) => {
+        page = pageNumber;
+        createUsers(pageNumber);
+      };
+      let previousPage = () => {
+        --page;
+        if (page <= 1) {
+          page = 1;
+        }
+        createUsers(page);
+      };
+      let nextPage = () => {
+        page++;
+        if (page >= 5) {
+          page = 5;
+        }
+        createUsers(page);
       };
     </script>
   </body>
