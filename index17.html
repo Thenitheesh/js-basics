@@ -119,6 +119,8 @@
   </head>
   <body>
     <script>
+         let    pageNumber = 3;
+         const loadMorePages=3
       function createComments(e, user) {
         let box = document.createElement("div");
         let heading = document.createElement("h2");
@@ -150,11 +152,8 @@
         ).then((res) => res.json());
       };
 
-      ["3", "7", "6", "5"];
-
-      let getUserPosts = async (pageNumber) => {
+      let getUserPosts = async () => {
         let users = await getUser();
-        const loadMorePages=3
         top3users = users.slice(pageNumber, pageNumber + loadMorePages);
         console.log(top3users);
         let PostsArray = top3users.map((e, c) => posts(e.id));
@@ -164,15 +163,15 @@
         });
         document.body.innerHTML += `<button class="more" onclick="more()">more</button>`;
       };
-      let noOfUsers = 3;
-      getUserPosts(0, noOfUsers);
+   
+      getUserPosts();
 
       let more = async () => {
         document
           .querySelectorAll(".more")
           .forEach((e) => (e.style.display = "none"));
-        getUserPosts(noOfUsers);
-        noOfUsers += 3;
+        getUserPosts();
+        pageNumber += 3;
       };
     </script>
   </body>
