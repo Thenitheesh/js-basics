@@ -176,21 +176,21 @@
             method: "get",
           }
         );
-         let all=Promise([getAllUser,allUserPosts])
-        // let getComments = await fetch(
-        //   `https://jsonplaceholder.typicode.com/comments?postId=${posts[0].id}`,
-        //   {
-        //     method: "get",
-        //   }
-        // );
-        // let comments = await getComments.json();
+        //  let all=Promise([getAllUser,allUserPosts])
+        let getComments = await fetch(
+          `https://jsonplaceholder.typicode.com/comments?postId=${posts[0].id}`,
+          {
+            method: "get",
+          }
+        );
+        let comments = await getComments.json();
 
         posts.forEach((element) => {
           createPosts(element);
         });
         // console.log(comments);
       };
-      searchUser()
+    //   searchUser()
     </script>
   </body>
 </html>

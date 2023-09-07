@@ -18,7 +18,6 @@
         flex-direction: column;
       }
       .container {
-        
         margin: 2rem;
         border-radius: 10px;
         background-color: white;
@@ -120,7 +119,7 @@
   </head>
   <body>
     <script>
-      function createComments(e,user) {
+      function createComments(e, user) {
         let box = document.createElement("div");
         let heading = document.createElement("h2");
         document.body.append(box);
@@ -151,19 +150,30 @@
         ).then((res) => res.json());
       };
 
-      let getUserPosts = async () => {
+      ["3", "7", "6", "5"];
+
+      let getUserPosts = async (pageNumber) => {
         let users = await getUser();
-        let hello = await Promise.all([
-          posts(users[0].id),
-          posts(users[1].id),
-          posts(users[2].id),
-        ]);
-        console.log(hello);
-        hello.forEach((e,c) => {
-  
-        createComments(e,users[c].name)});
+        const loadMorePages=3
+        top3users = users.slice(pageNumber, pageNumber + loadMorePages);
+        console.log(top3users);
+        let PostsArray = top3users.map((e, c) => posts(e.id));
+        let hello = await Promise.all(PostsArray);
+        hello.forEach((e, c) => {
+          createComments(e, top3users[c].name);
+        });
+        document.body.innerHTML += `<button class="more" onclick="more()">more</button>`;
       };
-      getUserPosts();
+      let noOfUsers = 3;
+      getUserPosts(0, noOfUsers);
+
+      let more = async () => {
+        document
+          .querySelectorAll(".more")
+          .forEach((e) => (e.style.display = "none"));
+        getUserPosts(noOfUsers);
+        noOfUsers += 3;
+      };
     </script>
   </body>
 </html>
