@@ -130,7 +130,7 @@
     </div>
     <div class="pagination"></div>
     <script>
-      let page = 0;
+      let page = 1;
       // let noOfUsersPage = 10;
       let createUser = ({ name, avatar, createdAt, id }) => {
         document.querySelector(
@@ -198,7 +198,8 @@
         createUsers(page);
       };
       let nextPage = () => {
-        page++;
+        ++page;
+        console.log(page)
         if (page >= 5) {
           page = 5;
         }
