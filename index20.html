@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .textarea{
+            resize: none;
+        }
+
+    </style>
+</head>
+<body>
+    <label for="password">password</label>
+    <input name="password" type="password" id="password">
+     <input type="checkbox" id="checkbox">view
+<br>
+     <input type="range" min="0" max="10" value="6" class="range"><p class="value"></p>
+<br>
+<textarea name="" placeholder="Tell about ypuself" id="" cols="30" rows="10" maxlength="20" class="area"></textarea>
+<p><span class="lengthofcontent">0</span>/20</p>
+     <script>
+        let box= document.querySelector('#checkbox')
+       box.addEventListener('change',()=>{
+        if(box.checked){
+            
+           document.querySelector('#password').setAttribute('type','text')}
+           else{
+            document.querySelector('#password').setAttribute('type','password')
+           }
+        })
+        let range= document.querySelector('.range')
+        let value=document.querySelector('.value')
+        range.addEventListener('change',()=>{
+            value.innerText=range.value
+        })
+        let area=document.querySelector('.area')
+        console.log(area)
+        let lengthofcontent=document.querySelector('.lengthofcontent')
+        area.addEventListener('input',()=>{
+            lengthofcontent.innerText= area.value.length
+        })
+     </script>
+</body>
+</html>

@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      DATA1 = [
+        {
+          imageurl: [],
+          genre: ["Action"],
+          imdbid: "tt12071786",
+          title: "Kothala Rayudu",
+          imdbrating: 8.7,
+          released: 2022,
+          type: "movie",
+          synopsis: "",
+        },
+        {
+          imageurl: [],
+          genre: ["Action", "Family", "Romance"],
+          imdbid: "tt11603828",
+          title: "Super Machi",
+          imdbrating: 8,
+          released: 2022,
+          type: "movie",
+          synopsis: "",
+        },
+        {
+          imageurl: [],
+          genre: ["Action"],
+          imdbid: "tt11306518",
+          title: "Hero",
+          imdbrating: 6.7,
+          released: 2022,
+          type: "movie",
+          synopsis: "",
+        },
+        {
+          imageurl: [
+            "https://m.media-amazon.com/images/M/MV5BOTM5Nzc2NDItYTdlZS00YThkLTlhNGItZGJkZDYyZmQyNTllXkEyXkFqcGdeQXVyNjE1OTQ0NjA@._V1_UY268_CR3,0,182,268_AL_ ",
+          ],
+          genre: ["Action", "Crime", "Drama"],
+          imdbid: "tt10698680",
+          title: "K.G.F: Chapter 2",
+          imdbrating: 8.7,
+          released: 2022,
+          type: "movie",
+          synopsis:
+            "The blood-soaked land of Kolar Gold Fields (KGF) Has a new overlord now. Rocky, whose name strikes fear in the heart of his foes. His allies look up to Rocky as their Savior, the government...",
+        },
+        {
+          imageurl: [
+            "https://m.media-amazon.com/images/M/MV5BZWUxNTZmMmQtMWE1NC00MTBhLWFlNjktMGJiNTY0ZTg5NzRmXkEyXkFqcGdeQXVyODAzNzAwOTU@._V1_UX182_CR0,0,182,268_AL_ ",
+          ],
+          genre: ["Action", "Drama"],
+          imdbid: "tt8178634",
+          title: "RRR",
+          released: 2022,
+          type: "movie",
+          synopsis:
+            "A fictitious story about two legendary revolutionaries and their journey away from home before they started fighting for their country in 1920's.",
+          imdbrating: 8.2,
+        },
+        {
+          imageurl: [
+            "https://m.media-amazon.com/images/M/MV5BZTNkM2YxYjEtOTQ5ZC00NjQ4LTkxODEtNTE4ZmRjZTQ2MzZmXkEyXkFqcGdeQXVyNTgxODY5ODI@._V1_UY268_CR3,0,182,268_AL_ ",
+          ],
+          genre: ["Action", "Drama", "Romance"],
+          imdbid: "tt9633480",
+          title: "Uppena",
+          imdbrating: 6.5,
+          released: 2021,
+          type: "movie",
+          synopsis: "",
+        },
+        {
+          imageurl: [
+            "https://m.media-amazon.com/images/M/MV5BMTZiMjk0OTctZTA0My00MjExLWE1MjUtMWNiNGU4MWZhMmE3XkEyXkFqcGdeQXVyNzAyMzcyODY@._V1_UY268_CR3,0,182,268_AL_ ",
+          ],
+          genre: ["Action", "Crime", "Thriller"],
+          imdbid: "tt8302382",
+          title: "Krack",
+          imdbrating: 7,
+          released: 2021,
+          type: "movie",
+          synopsis: "",
+        },
+        {
+          imageurl: [
+            "https://m.media-amazon.com/images/M/MV5BMjQxMzE1YWItNzA0ZS00NDVhLWFhMzUtMzkyZTFmN2NlNjYwXkEyXkFqcGdeQXVyMTE0Mjc5NTQx._V1_UY268_CR194,0,182,268_AL_ ",
+          ],
+          genre: ["Action", "Crime", "Drama"],
+          imdbid: "tt8269248",
+          title: "Vakeel Saab",
+          imdbrating: 7,
+          released: 2021,
+          type: "movie",
+          synopsis: "",
+        },
+        {
+          imageurl: [
+            "https://m.media-amazon.com/images/M/MV5BZjU3OWZlYmItMTM0Yy00ZjlmLTg0YTUtMGUzY2EyZGVjNjMyXkEyXkFqcGdeQXVyNzQ3NDU1ODQ@._V1_UY268_CR43,0,182,268_AL_ ",
+          ],
+          genre: ["Action", "Drama", "Fantasy"],
+          imdbid: "tt7822758",
+          title: "Kaadan",
+          imdbrating: 8,
+          released: 2021,
+          type: "movie",
+          synopsis: "Based on real life events of conservation of elephants .",
+        },
+        {
+          imageurl: [],
+          genre: ["Action", "Drama"],
+          imdbid: "tt11773378",
+          title: "Akhanda",
+          imdbrating: 6.8,
+          released: 2021,
+          type: "movie",
+          synopsis: "",
+        },
+        {
+          imageurl: [
+            "https://m.media-amazon.com/images/M/MV5BY2MxODJjYzMtMjBkYy00ZjNmLWJiYjItNmIzOGJiMzk3YTEwXkEyXkFqcGdeQXVyNTgxODY5ODI@._V1_UY268_CR11,0,182,268_AL_ ",
+          ],
+          genre: ["Action", "Drama"],
+          imdbid: "tt11648514",
+          title: "Narappa",
+          imdbrating: 7.9,
+          released: 2021,
+          type: "movie",
+          synopsis: "",
+        },
+        {
+          imageurl: [
+            "https://m.media-amazon.com/images/M/MV5BMDBlOGNlM2ItZGM3MS00YjA0LThiMjMtYTUzZmE1NWY3MjUzXkEyXkFqcGdeQXVyNjE1OTQ0NjA@._V1_UY268_CR6,0,182,268_AL_ ",
+          ],
+          genre: ["Action", "Crime", "Drama"],
+          imdbid: "tt9664732",
+          title: "Disco Raja",
+          imdbrating: 6.2,
+          released: 2020,
+          synopsis:
+            "Attacked and frozen to death, a dead man is revived by a group of doctors with the help of a technology that brings back dead people alive.",
+          type: "movie",
+        },
+        {
+          imageurl: [
+            "https://m.media-amazon.com/images/M/MV5BODc2YzM0MWMtOGE0ZC00Njc2LTliYTYtN2ZjZGFkZTI4ZmE3XkEyXkFqcGdeQXVyNDY5MTUyNjU@._V1_UY268_CR6,0,182,268_AL_ ",
+          ],
+          genre: ["Action", "Comedy", "Drama"],
+          imdbid: "tt9537292",
+          title: "Ala Vaikunthapurramuloo",
+          imdbrating: 7.3,
+          released: 2020,
+          synopsis:
+            "A jealous clerk secretly switches his newborn son with his millionaire friend's temporarily stillborn son.",
+          type: "movie",
+        },
+        {
+          imageurl: [
+            "https://m.media-amazon.com/images/M/MV5BZWUxNWRiMGYtYzlmYi00Y2U1LWJmNGQtNWNjYjkyOTZhMzc4XkEyXkFqcGdeQXVyOTc2MTgwNjY@._V1_UX182_CR0,0,182,268_AL_ ",
+          ],
+          genre: ["Action"],
+          imdbid: "tt11847966",
+          title: "Eureka",
+          imdbrating: 6.8,
+          released: 2020,
+          synopsis:
+            "Yuva wants to complete his college course sooner and when he tries to put an end to the college festival lead by Revanth his life gets tossed when the latter ends up dead under mysterious circumstances.",
+          type: "movie",
+        },
+        {
+          imageurl: [
+            "https://m.media-amazon.com/images/M/MV5BYmFjNzIyNzktMWRiOS00MjU5LThlYmUtOWQ4NjNmZDAxOWUyXkEyXkFqcGdeQXVyNjkwOTg4MTA@._V1_UY268_CR5,0,182,268_AL_ ",
+          ],
+          genre: ["Action", "Crime", "Drama"],
+          imdbid: "tt11490170",
+          title: "HIT",
+          imdbrating: 7.7,
+          released: 2020,
+          synopsis:
+            "Vikram is a 30-year-old cop. While he is battling with his own traumatic past, the stakes get high when a girl called Preethi mysteriously disappears in Hyderabad and Vikram has to solve the case at any cost.",
+          type: "movie",
+        },
+        {
+          imageurl: [
+            "https://m.media-amazon.com/images/M/MV5BNWE3ZTc1ZjItNWIyMy00Njk4LWJkNjQtNTgzMjg3NmIzNzRlXkEyXkFqcGdeQXVyNjU0Nzg1NzY@._V1_UY268_CR4,0,182,268_AL_ ",
+          ],
+          genre: ["Action", "Crime", "Thriller"],
+          imdbid: "tt11430262",
+          title: "Aswathama",
+          imdbrating: 6.4,
+          released: 2020,
+          synopsis:
+            "A man works to uncover the details behind a series of crimes targeting women.",
+          type: "movie",
+        },
+        {
+          imageurl: [
+            "https://m.media-amazon.com/images/M/MV5BOTdjMGExY2QtMTgzYy00ODlkLThkZWQtZGZiNjc1MTRmOTIxXkEyXkFqcGdeQXVyNTgxODY5ODI@._V1_UY268_CR4,0,182,268_AL_ ",
+          ],
+          genre: ["Action", "Crime", "Thriller"],
+          imdbid: "tt11385128",
+          title: "V",
+          imdbrating: 6.8,
+          released: 2020,
+          type: "movie",
+          synopsis: "",
+        },
+        {
+          imageurl: [
+            "https://m.media-amazon.com/images/M/MV5BOTdhODUxYzYtNzc1Zi00YTMzLThhYzAtMTk3YzIwMjQwYzMwXkEyXkFqcGdeQXVyNTgxODY5ODI@._V1_UY268_CR4,0,182,268_AL_ ",
+          ],
+          genre: ["Action", "Comedy", "Romance"],
+          imdbid: "tt11199356",
+          title: "Bheeshma",
+          imdbrating: 6.6,
+          released: 2020,
+          synopsis:
+            "The film revolves around Bheeshma, a man making his living as a meme creator, who wants to remain single forever. But will he be able to?",
+          type: "movie",
+        },
+        {
+          imageurl: [],
+          genre: ["Action"],
+          imdbid: "tt10852008",
+          title: "Balakot: the true story",
+          imdbrating: 6.5,
+          released: 2020,
+          type: "movie",
+          synopsis: "Film on Balakot air strikes 2019.",
+        },
+        {
+          imageurl: [
+            "https://m.media-amazon.com/images/M/MV5BZDBmM2Q1MjQtNTljMy00NzBhLTlhNmItNGQ2Mjk2YWRjMmRkXkEyXkFqcGdeQXVyNjU0Nzg1NzY@._V1_UX182_CR0,0,182,268_AL_ ",
+          ],
+          genre: ["Action", "Drama"],
+          imdbid: "tt10682062",
+          title: "Palasa 1978",
+          imdbrating: 7.3,
+          released: 2020,
+          synopsis:
+            "Mohan Rao and his elder brother face Pedda Shavukar and Chinna Shavukar, a political battle where low caste fights the high caste power.",
+          type: "movie",
+        },
+        {
+          imageurl: [
+            "https://m.media-amazon.com/images/M/MV5BMzNmN2ZhZWMtYTM1NC00Y2VlLThhMDYtY2M3NzdiYmQ4ZTU3XkEyXkFqcGdeQXVyOTIzMTY3NTM@._V1_UY268_CR9,0,182,268_AL_ ",
+          ],
+          genre: ["Action", "Comedy", "Crime"],
+          imdbid: "tt12369428",
+          title: "Raju Gari Kidnap",
+          released: 2020,
+          type: "movie",
+          synopsis:
+            "A desperate filmmaker Aravind, who just broke up with his girl kidnaps a film producer to narrate a film story, as he doesn't have any choice. How he able to convince him to make the film ...",
+          imdbrating: 7.4,
+        },
+        {
+          imdbid: "tt12723616",
+          genre: ["Action", "Comedy", "Sci-Fi"],
+          released: 2020,
+          title: "BomBhaat",
+          type: "movie",
+          synopsis:
+            "An extremely unfortunate guy battling his destiny, stuck in a Love triangle, gets entangled in a decades old revenge saga between his God Father and a Mad scientist chasing a dangerous and extremely powerful formula.",
+          imageurl: [
+            "https://m.media-amazon.com/images/M/MV5BODVmN2IyNjUtMjIwOC00MzhlLThiYjgtMTI2MDFhMmFhMjFjXkEyXkFqcGdeQXVyMTIxMTE1NDgx._V1_UY268_CR222,0,182,268_AL_ ",
+          ],
+          imdbrating: 6.1,
+        },
+        {
+          imageurl: [
+            "https://m.media-amazon.com/images/M/MV5BZDgyODkzYmItMmVkOC00Mzc1LWE5MzUtMTgzZmQ5NDE3N2VkXkEyXkFqcGdeQXVyNTgxODY5ODI@._V1_UY268_CR9,0,182,268_AL_ ",
+          ],
+          genre: ["Action", "Thriller"],
+          imdbid: "tt9799984",
+          title: "Falaknuma Das",
+          imdbrating: 6.4,
+          released: 2019,
+          type: "movie",
+          synopsis:
+            "Set in the backdrop of the colonies of falaknuma where a group of youngsters fall into unexpected consequences which lead them to a driving pathway of violence, brutality and ruthlessness.",
+        },
+        {
+          imageurl: [
+            "https://m.media-amazon.com/images/M/MV5BYjZlN2UwYmEtMmRkOC00NzViLWFjMWEtOGY2YTBmNjZlNTVmXkEyXkFqcGdeQXVyMzc4ODk0NTc@._V1_UY268_CR4,0,182,268_AL_ ",
+          ],
+          genre: ["Action", "Comedy"],
+          imdbid: "tt9675464",
+          title: "Gang Leader",
+          imdbrating: 7.6,
+          released: 2019,
+          type: "movie",
+          synopsis:
+            "Nani plays the gang leader of five women belonging to different age groups, helping them to plot revenge.",
+        },
+        {
+          imageurl: [
+            "https://m.media-amazon.com/images/M/MV5BMWFlNDdlM2EtMGFlMS00NTViLWJlZGEtMjVhNjJiNGI1YjdlXkEyXkFqcGdeQXVyMzYxOTQ3MDg@._V1_UY268_CR3,0,182,268_AL_ ",
+          ],
+          genre: ["Action", "Comedy", "Crime"],
+          imdbid: "tt9670480",
+          title: "Gaddalakonda Ganesh",
+          imdbrating: 6.5,
+          released: 2019,
+          type: "movie",
+          synopsis:
+            "An aspiring filmmaker who wants to direct a realistic story, stumbles upon a menacing villain and to learn the nitty-gritties of the villain's character, he puts his and his friend's life on the line.",
+        },
+        {
+          imageurl: [
+            "https://m.media-amazon.com/images/M/MV5BZjg5ZjNkOGItYWMwMi00NjhiLWFmYzYtYWZhYmQxYTA4MmNjXkEyXkFqcGdeQXVyNjkwOTg4MTA@._V1_UY268_CR4,0,182,268_AL_ ",
+          ],
+          genre: ["Action", "Crime", "Drama"],
+          imdbid: "tt9537082",
+          title: "Ranarangam",
+          imdbrating: 6,
+          released: 2019,
+          type: "movie",
+          synopsis:
+            "Deva (Sharwanand) is a powerful gangster from Visakhapatnam who moves to Spain to put his past behind him. But what happens when he realises he can't shake off his enemies no matter where he goes?",
+        },
+        {
+          imageurl: [
+            "https://m.media-amazon.com/images/M/MV5BOTQ5MGJjMzItM2ZmYi00MzVlLThkNmMtYTFjMmQ5YTVlYWJlXkEyXkFqcGdeQXVyODIwMDI1NjM@._V1_UX182_CR0,0,182,268_AL_ ",
+          ],
+          genre: ["Action", "Crime", "Drama"],
+          imdbid: "tt9304360",
+          title: "Ayogya",
+          imdbrating: 6.1,
+          released: 2019,
+          synopsis:
+            "A corrupt police officer finds his life changing when he takes on a case of gang rape.",
+          type: "movie",
+        },
+        {
+          imageurl: [
+            "https://m.media-amazon.com/images/M/MV5BMThhYWQwMzUtYzZkYi00MjI0LWE5NzctMWRiNDc0NWI0Y2UyXkEyXkFqcGdeQXVyOTM2NjQ1OTE@._V1_UY268_CR3,0,182,268_AL_ ",
+          ],
+          genre: ["Action", "Drama"],
+          imdbid: "tt9271358",
+          title: "Bailampudi",
+          imdbrating: 6.8,
+          released: 2019,
+          synopsis:
+            "Ravi (Harish Vinay), an auto driver falls for Kalyani (Tanishq Rajan) who happens to be the daughter of the village head Guru Narayan( Brahmanandareddy). The twist in the tale arises when Guru Narayan gets killed by Ravi. During his last breath, he reveals a secret about Kalyani which leaves Ravi stunned.",
+          type: "movie",
+        },
+        {
+          imageurl: [
+            "https://m.media-amazon.com/images/M/MV5BYTIyNWM5YzgtZDhkNC00MmZjLWIxODItYTViZmVmZjlkMDE3XkEyXkFqcGdeQXVyOTk3NTc2MzE@._V1_UX182_CR0,0,182,268_AL_ ",
+          ],
+          genre: ["Action", "Drama", "Sport"],
+          imdbid: "tt9260636",
+          title: "Bigil",
+          imdbrating: 6.7,
+          released: 2019,
+          synopsis:
+            "A former football player struggles to train a women's football team and avenge his father's death.",
+          type: "movie",
+        },
+        {
+          imageurl: [
+            "https://m.media-amazon.com/images/M/MV5BYTZjNjM1M2EtZTczNi00MzlmLWFhZWUtNDRmODgwM2YwYWFlXkEyXkFqcGdeQXVyNDY5MTUyNjU@._V1_UY268_CR2,0,182,268_AL_ ",
+          ],
+          genre: ["Action", "Mystery", "Thriller"],
+          imdbid: "tt8660422",
+          title: "118",
+          imdbrating: 6.5,
+          released: 2019,
+          synopsis:
+            "A recurring nightmare involving the murder of a young woman prompts an investigative journalist on a quest to find out whether there is any truth to the dream.",
+          type: "movie",
+        },
+        {
+          imageurl: [
+            "https://m.media-amazon.com/images/M/MV5BZTdmNmI4MzUtNDUzMi00ZTIzLWE3MmMtNTk5YjU5Zjg4YmQ3XkEyXkFqcGdeQXVyMzM4MDA0Nzk@._V1_UY268_CR4,0,182,268_AL_ ",
+          ],
+          genre: ["Action", "Crime", "Thriller"],
+          imdbid: "tt8594012",
+          title: "Arjun Suravaram",
+          imdbrating: 6.7,
+          released: 2019,
+          synopsis:
+            "An investigative journalist is arrested for cheating banks with fake certificates. He discovers a crime syndicate behind the scam and decides to investigate it himself.",
+          type: "movie",
+        },
+        {
+          imageurl: [
+            "https://m.media-amazon.com/images/M/MV5BZmMwYjZhYjAtODc0MC00OTE4LTg2YTAtYzlkMTM3ZjExYjJiXkEyXkFqcGdeQXVyODIwMDI1NjM@._V1_UY268_CR9,0,182,268_AL_ ",
+          ],
+          genre: ["Action", "Thriller"],
+          imdbid: "tt8411144",
+          title: "Kaappaan",
+          imdbrating: 6.2,
+          released: 2019,
+          synopsis:
+            "A Special Protection Group officer has to identify the threat to the prime minister, who he is protecting, and also the nation.",
+          type: "movie",
+        },
+        {
+          imageurl: [
+            "https://m.media-amazon.com/images/M/MV5BNzQ3YzkyMjEtNGFmYi00Y2QzLTg4NjItODMzNWQ0NzBiYWEzXkEyXkFqcGdeQXVyNjQ1MDcxNzM@._V1_UX182_CR0,0,182,268_AL_ ",
+          ],
+          genre: ["Action", "Drama"],
+          imdbid: "tt8333978",
+          title: "Maharshi",
+          imdbrating: 7.2,
+          released: 2019,
+          synopsis:
+            "Rishi, a millionaire businessman, returns to his homeland, where he becomes the champion of poor and downtrodden farmers.",
+          type: "movie",
+        },
+        {
+          imageurl: [
+            "https://m.media-amazon.com/images/M/MV5BNTlmNDMzOWQtYzg4Ny00OWQ0LWFhN2MtNmQ2MDczZGZhNTU5XkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_UY268_CR7,0,182,268_AL_ ",
+          ],
+          genre: ["Action", "Adventure", "Thriller"],
+          imdbid: "tt7430722",
+          title: "War",
+          imdbrating: 6.5,
+          released: 2019,
+          synopsis:
+            "An Indian soldier chases after his mentor who has gone rogue following an unexpected kill.",
+          type: "movie",
+        },
+        {
+          imageurl: [
+            "https://m.media-amazon.com/images/M/MV5BNWM2YjY3Y2YtMzY0MC00Nzg4LTlkMDEtODNhZmRhN2I5OGUxXkEyXkFqcGdeQXVyNjM0NDc1MzM@._V1_UY268_CR4,0,182,268_AL_ ",
+          ],
+          genre: ["Action", "Drama", "Sport"],
+          imdbid: "tt7317482",
+          title: "Pailwaan",
+          imdbrating: 6.1,
+          released: 2019,
+          synopsis:
+            "Krishna, a fierce wrestler, faces challenges in his personal life as he tries to fulfill the dream of his father, an ex-wrestler.",
+          type: "movie",
+        },
+        {
+          imageurl: [
+            "https://m.media-amazon.com/images/M/MV5BMjg5ZGU3MDAtMGMxOC00ZmY4LTk4MzItYzc2NWYzNjI3NjMxXkEyXkFqcGdeQXVyNjQ1MDcxNzM@._V1_UY268_CR20,0,182,268_AL_ ",
+          ],
+          genre: ["Action", "Adventure", "Drama"],
+          imdbid: "tt7283064",
+          title: "Sye Raa Narasimha Reddy",
+          imdbrating: 7.3,
+          released: 2019,
+          synopsis:
+            "A historical action epic inspired by the life of Uyyalawada Narasimha Reddy, who revolted against the atrocities of East India Company 10 years before the Sepoy Mutiny.",
+          type: "movie",
+        },
+        {
+          imageurl: [
+            "https://m.media-amazon.com/images/M/MV5BNWU5NjgyMmEtYTBkZC00ZTBmLTg5YTQtM2FlMzg1Y2Y4NWI2XkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_UY268_CR2,0,182,268_AL_ ",
+          ],
+          genre: ["Action", "Biography", "Drama"],
+          imdbid: "tt6903440",
+          title: "Manikarnika: The Queen of Jhansi",
+          imdbrating: 6.4,
+          released: 2019,
+          synopsis:
+            "Story of Rani Lakshmibai, one of the leading figures of the Indian Rebellion of 1857 and her resistance to the British Rule.",
+          type: "movie",
+        },
+        {
+          imageurl: [
+            "https://m.media-amazon.com/images/M/MV5BMzlhNDg4MTctZjYyZi00YjY1LWI2MzctOWM1NGVhZDE1YWJlXkEyXkFqcGdeQXVyNDMzNDEzNzA@._V1_UX182_CR0,0,182,268_AL_ ",
+          ],
+          genre: ["Action", "Drama", "Sci-Fi"],
+          imdbid: "tt11296054",
+          title: "Beach Road Chetan",
+          imdbrating: 7.2,
+          released: 2019,
+          synopsis:
+            "When a happy-go-lucky kind of a guy chances upon a mysterious iPhone, his life turns topsy-turvy to unexpected consequences.",
+          type: "movie",
+        },
+        {
+          imageurl: [
+            "https://m.media-amazon.com/images/M/MV5BMDRkOGU2MzMtNWUxOS00MmYyLWIwZjUtNWQxNzA2NjFmYjk0XkEyXkFqcGdeQXVyNjU0Nzg1NzY@._V1_UY268_CR4,0,182,268_AL_ ",
+          ],
+          genre: ["Action", "Biography"],
+          imdbid: "tt11189056",
+          title: "George Reddy",
+          imdbrating: 6.8,
+          released: 2019,
+          synopsis:
+            "George Reddy is a biopic based on the life of a student leader, boxer and Gold medalist, who influenced the politics of Andhra Pradesh state in Osmania University between 1967 and 1972. He ...",
+          type: "movie",
+        },
+        {
+          imageurl: [
+            "https://m.media-amazon.com/images/M/MV5BYzZmZDhlZjQtMjk5Ny00ODkxLTk4MjgtNmYwYzMzOTdkNzc3XkEyXkFqcGdeQXVyMTA0MDMwNDEy._V1_UY268_CR14,0,182,268_AL_ ",
+          ],
+          genre: ["Action"],
+          imdbid: "tt10763826",
+          title: "Marshal",
+          imdbrating: 6.7,
+          released: 2019,
+          synopsis:
+            "Marshal is a medical crime thriller movie directed by Jai Raaja Singh and produced by Abhay Adaka. The movie cast includes Srikanth, Abhay, Megha Chowdhury and Rashmi are in the lead roles. Yaadagiri Varikuppala scored music.",
+          type: "movie",
+        },
+        {
+          imageurl: [
+            "https://m.media-amazon.com/images/M/MV5BMjBjYmMzZjUtOTc1Ny00MTVlLWEwZGEtZGE5ZTA2ZjNiMzQwXkEyXkFqcGdeQXVyNDc2NzU1MTA@._V1_UX182_CR0,0,182,268_AL_ ",
+          ],
+          genre: ["Action", "Drama"],
+          imdbid: "tt10638296",
+          title: "Guna 369",
+          imdbrating: 6.2,
+          released: 2019,
+          synopsis:
+            "Guna (Karthikeya) is a happy-go-lucky guy who believes the solution to solving issues is not through violence but through compromise. But what happens when he's forced to the extremes by someone close to him?",
+          type: "movie",
+        },
+        {
+          imageurl: [
+            "https://m.media-amazon.com/images/M/MV5BZjQ5NzMzMDMtNDE2OS00ZjMxLWFhNDYtNWI1YzQxODFmOTI1XkEyXkFqcGdeQXVyMTAyMDcxODkw._V1_UY268_CR43,0,182,268_AL_ ",
+          ],
+          genre: ["Action"],
+          imdbid: "tt10316018",
+          title: "ASHWAMEDHAM",
+          imdbrating: 6.6,
+          released: 2019,
+          synopsis:
+            "How do you defeat an opponent in a game of chess if he claims to read your mind and know your next move? In a world where no one is who they appear to be, Dhruva is an ordinary man who runs ...\n                    See full synopsis",
+          type: "movie",
+        },
+        {
+          imageurl: [
+            "https://m.media-amazon.com/images/M/MV5BNzE4MGYzN2UtMzE4Yi00ODI4LWJjMTQtMWFhYzk5MmIzOTU2XkEyXkFqcGdeQXVyNDc2NzU1MTA@._V1_UY268_CR3,0,182,268_AL_ ",
+          ],
+          genre: ["Action"],
+          imdbid: "tt10300254",
+          title: "Evadu Thakkuva Kadu",
+          imdbrating: 7.2,
+          released: 2019,
+          synopsis:
+            "It follows the story of four friends who face the wrath of a powerful man after their actions inadvertently result in a loss of face for him. They must now fight back against him for survival.",
+          type: "movie",
+        },
+        {
+          imageurl: [
+            "https://m.media-amazon.com/images/M/MV5BY2IwNzg5YjMtMjA1NS00NTM2LTlkOWYtNTAxMDNjZWNiNTNhXkEyXkFqcGdeQXVyMTA0MDMwNDEy._V1_UY268_CR3,0,182,268_AL_ ",
+          ],
+          genre: ["Action", "Thriller"],
+          imdbid: "tt10207954",
+          title: "Kalki",
+          imdbrating: 6.8,
+          released: 2019,
+          synopsis:
+            "The village of Kollapuram is under the rule of Narsappa (Ashutosh Rana) and Perumal (Shatru). One day during a local festival Sekhar (Siddhu Jonnalagadda), brother of Narsappa gets killed. ...",
+          type: "movie",
+        },
+        {
+          imageurl: [
+            "https://m.media-amazon.com/images/M/MV5BMmM5YTZjZjQtODhlMy00YzQyLWI5OGEtNGQ4MjhjZTQ5YzNlXkEyXkFqcGdeQXVyNTgxODY5ODI@._V1_UY268_CR3,0,182,268_AL_ ",
+          ],
+          genre: ["Action", "Crime", "Thriller"],
+          imdbid: "tt10133300",
+          title: "Rakshasudu",
+          imdbrating: 8.1,
+          released: 2019,
+          synopsis:
+            "A sub-inspector sets out in pursuit of a mysterious serial killer who targets teen girls and murders them brutally.",
+          type: "movie",
+        },
+        {
+          imageurl: [
+            "https://m.media-amazon.com/images/M/MV5BZWIwYjRmMmUtODNmYS00NzQzLWExNGQtMWJkNjBlMWQ0YTcyXkEyXkFqcGdeQXVyNTgxODY5ODI@._V1_UY268_CR5,0,182,268_AL_ ",
+          ],
+          genre: ["Action", "Drama", "Romance"],
+          imdbid: "tt8388508",
+          title: "Dear Comrade",
+          imdbrating: 7.3,
+          released: 2019,
+          synopsis:
+            "A hot-blooded student union leader falls for a state-level cricketer but his anger management issues and violent streak threatens to derail their love story.",
+          type: "movie",
+        },
+        {
+          imageurl: [
+            "https://m.media-amazon.com/images/M/MV5BMWFhZDhkYzMtYjM3NC00OTAxLThhNTEtNmM3OGFjODE0OWU3XkEyXkFqcGdeQXVyMTE5NjAxMDQx._V1_UY268_CR73,0,182,268_AL_ ",
+          ],
+          genre: ["Action", "Drama"],
+          imdbid: "tt12492650",
+          title: "Ek",
+          released: 2019,
+          type: "movie",
+          synopsis: "",
+          imdbrating: 7.9,
+        },
+        {
+          imageurl: [
+            "https://m.media-amazon.com/images/M/MV5BMzY2MDE3ZTUtN2NlNi00ZGY5LWI5YmMtNWRhZGUzNjkxZGJlXkEyXkFqcGdeQXVyMTIwNjU2MDU4._V1_UX182_CR0,0,182,268_AL_ ",
+          ],
+          genre: ["Action"],
+          imdbid: "tt12664632",
+          title: "Mental - 'B' Positive",
+          released: 2019,
+          type: "movie",
+          synopsis: "",
+          imdbrating: 9,
+        },
+        {
+          imageurl: [
+            "https://m.media-amazon.com/images/M/MV5BOTZhZmY1YWMtN2FlOS00MjgwLWE5ODQtZmRhNmY1MmVmYTRhXkEyXkFqcGdeQXVyNDY5MTUyNjU@._V1_UX182_CR0,0,182,268_AL_ ",
+          ],
+          genre: ["Action", "Thriller"],
+          imdbid: "tt9479454",
+          title: "U kathe hero",
+          imdbrating: 6.8,
+          released: 2018,
+          type: "movie",
+          synopsis:
+            "The film revolves around a small police investigation in Rudravaram village, which leads to solving a mystery around the underworld.",
+        },
+        {
+          imageurl: [
+            "https://m.media-amazon.com/images/M/MV5BYjVmMWMzMmItNTA3ZS00OTNmLWJjM2MtYTcxMmU0YTFmY2M2XkEyXkFqcGdeQXVyNDY5MTUyNjU@._V1_UY268_CR3,0,182,268_AL_ ",
+          ],
+          genre: ["Action"],
+          imdbid: "tt9052864",
+          title: "Natakam",
+          imdbrating: 6.2,
+          released: 2018,
+          type: "movie",
+          synopsis:
+            "In the village Chintalapudi, Bala koteswarao, an easy going, careless attitude guy falls in love with a college girl, Parvati. The love story of the duo continues in an entertaining and ...",
+        },
+      ];
+  movies=[
+ {"movie": "Kothala Rayudu", "cast": ["Allu Arjun"]},
+ {"movie": "Super Machi", "cast": ["Allari Naresh"]},
+ {"movie": "Hero", "cast": ["Varun Tej"]},
+ {"movie": "K.G.F: Chapter 2", "cast": ["Yash"]},
+ {"movie": "RRR", "cast": ["Ram Charan", "Jr. NTR"]},
+ {"movie": "Uppena", "cast": ["Vijay Deverakonda", "Krithi Shetty"]},
+ {"movie": "Krack", "cast": ["Ravi Teja"]},
+ {"movie": "Vakeel Saab", "cast": ["Pawan Kalyan"]},
+ {"movie": "Kaadan", "cast": ["Dhanush"]},
+ {"movie": "Akhanda", "cast": ["Balakrishna"]},
+ {"movie": "Narappa", "cast": ["Venkatesh"]},
+ {"movie": "Disco Raja", "cast": ["Ravi Teja"]},
+ {"movie": "Ala Vaikunthapurramuloo", "cast": ["Allu Arjun"]},
+ {"movie": "Eureka", "cast": ["Varun Tej"]},
+ {"movie": "HIT", "cast": ["Vishwak Sen"]},
+ {"movie": "Aswathama", "cast": ["Bellamkonda Srinivas"]},
+ {"movie": "V", "cast": ["Nani"]},
+ {"movie": "Bheeshma", "cast": ["Nithiin"]},
+ {"movie": "Balakot: the true story", "cast": ["Ajay Devgn"]},
+ {"movie": "Palasa 1978", "cast": ["Mohan Rao", "Sree Vishnu"]},
+ {"movie": "Raju Gari Kidnap", "cast": ["Varun Tej"]},
+ {"movie": "BomBhaat", "cast": ["Salman Khan", "Katrina Kaif"]},
+ {"movie": "Falaknuma Das", "cast": ["Nani"]},
+ {"movie": "Gang Leader", "cast": ["Nani"]},
+ {"movie": "Gaddalakonda Ganesh", "cast": ["Varun Tej"]},
+ {"movie": "Ranarangam", "cast": ["Sharwanand"]},
+ {"movie": "Ayogya", "cast": ["Vishal"]},
+ {"movie": "Bailampudi", "cast": ["Sai Dharam Tej"]},
+ {"movie": "Bigil", "cast": ["Vijay"]},
+ {"movie": "118", "cast": ["Nani"]},
+ {"movie": "Arjun Suravaram", "cast": ["Varun Tej"]},
+ {"movie": "Kaappaan", "cast": ["Suriya"]},
+ {"movie": "Maharshi", "cast": ["Mahesh Babu"]},
+ {"movie": "War", "cast": ["Hrithik Roshan", "Tiger Shroff"]},
+ {"movie": "Pailwaan", "cast": ["Yash"]},
+ {"movie": "Sye Raa Narasimha Reddy", "cast": ["Chiranjeevi"]},
+ {"movie": "Manikarnika: The Queen of Jhansi", "cast": ["Kangana Ranaut"]},
+ {"movie": "Beach Road Chetan", "cast": ["Sharwanand"]},
+ {"movie": "George Reddy", "cast": ["Panja Vaisshnav Tej"]},
+ {"movie": "Marshal", "cast": ["Nani"]},
+ {"movie": "Guna 369", "cast": ["Ravi Teja"]},
+ {"movie": "ASHWAMEDHAM", "cast": ["Bellamkonda Srinivas"]},
+ {"movie": "Evadu Thakkuva Kadu", "cast": ["Ravi Teja"]},
+ {"movie": "Kalki", "cast": ["Varun Tej"]},
+ {"movie": "Rakshasudu", "cast": ["Varun Tej"]},
+ {"movie": "Dear Comrade", "cast": ["Vijay Deverakonda", "Rashmika Mandanna"]},
+ {"movie": "Ek", "cast": ["Nani"]},
+ {"movie": "Mental - 'B' Positive", "cast": ["Nani"]},
+ {"movie": "U kathe hero", "cast": ["Nani"]},
+ {"movie": "Natakam", "cast": ["Nani"]},
+]
+      //     const sli=DATA1.map((movie) => {
+      //    movie.imageurl[0].slice(0,-3)
+      //     })
+      //     console.log(sli)
+      let transformedData = DATA1.map((movie) => ({
+        name: movie.title,
+        poster: movie.imageurl[0],
+        rating: movie.imdbrating.toString(),
+        summary: movie.synopsis,
+        trailer: "", // no trailer data in [DATA1]
+        featured: false, // no featured data in [DATA1]
+        like: 0,
+        dislike: 0,
+        censorRating: "", // no censorRating data in [DATA1]
+        genres: movie.genre.map((g) => g.toUpperCase()),
+        languages: [], // no languages data in [DATA1]
+        cast: [], // no cast data in [DATA1]
+        id: movie.imdbid,
+        releaseYear: new Date(movie.released, 0).toISOString(),
+      }));
+    let mov=movies.map((e,i)=>{
+        return {...transformedData[i],cast:e.cast,languages:[
+      "Hindi",
+      "Tamil",
+      "Malayalam",
+      "Kannada",
+      "Telugu"
+    ]}
+    })
+    console.log(mov)
+      //   console.log(dat)
+      // DATA1.poster[0].imageurl
+      console.log(transformedData);
+    </script>
+  </body>
+</html>

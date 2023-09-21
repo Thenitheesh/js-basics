@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class account {
+        constructor(name, accNo, balance) {
+          this.name = name;
+          this.accNo = accNo;
+          this.balance = balance;
+          this.transactions = [];
+        }
+        
+        getTransactions() {
+          this.transactions.forEach((e) => (e.date = new Date(e.date)));
+          console.log(this.transactions);
+        }
+        withdraw(amount) {
+          if (amount > this.balance) {
+            return `balance is low`;
+          }
+          this.balance = this.balance - amount;
+          this.transactions.push({
+            date: Date.now(),
+            id: 1,
+            type: "withdraw",
+            amount,
+          });
+          return this.balance;
+        }
+        deposit(amount) {
+          if (amount < 0) {
+            return `Try again `;
+          }
+          this.balance += amount;
+          return;
+        }
+        getbalance() {
+          return `${this.name} your balance is ${this.balance}`;
+        }
+      }
+      let nitheesh = new account("nitheesh", 7569907446, 100000);
+
+      console.log(nitheesh.withdraw(20_000));
+      console.log(nitheesh.getTransactions());e
+    </script>
+  </body>
+</html>
